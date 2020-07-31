@@ -3,7 +3,7 @@
     --primary: #dddddd;
     --dark: #333;
     --light: #fff;
-    --shadow: 0 1px 5px rgba(104,104,104,0.8);
+    --shadow: 0 2px 5px rgba(104,104,104,0.5);
 }
 
 html {
@@ -32,23 +32,22 @@ img {
 
 .wrapper {
     display: grid;
-    grid: 20px;
+    grid-gap: 20px;
 }
 
 /* Navigation */
 .main-nav ul {
     display: grid;
-    grid: 20px;
+    grid-gap: 20px;
     padding: 0;
     list-style: none;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .main-nav a {
     background: var(--primary);
     display: block;
     text-decoration: none;
-    margin: 0.2rem;
     padding: 0.8rem;
     text-align: center;
     color: var(--dark);
@@ -65,7 +64,7 @@ img {
 /* Top Container */
 .top-container {
     display: grid;
-    gap: 20px;
+    grid-gap: 20px;
     grid-template-areas: 
         'showcase showcase top-box-a'
         'showcase showcase top-box-b';
@@ -79,7 +78,7 @@ img {
     background-size: cover;
     background-position: center;
     padding: 3rem;
-    display: flex;
+    display: flex; /* using flexbox */
     flex-direction: column;
     align-items: start;
     justify-content: center;
@@ -87,18 +86,18 @@ img {
 }
 
 .showcase h1 {
-    font-size: 4rem;
+    font-size: 3.2rem;
     margin-bottom: 0;
     color: var(--light);
 }
 
 .showcase p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-top: 0;
     color: var(--light);
 }
 
-/* Top Box */
+/* Top Container */
 .top-box {
     background: var(--primary);
     display: grid;
@@ -134,19 +133,23 @@ img {
     box-shadow: var(--shadow);
 }
 
-/* info */
+/* Info */
 .info {
     background: var(--primary);
     box-shadow: var(--shadow);
     display: grid;
-    grid-gap: 30px;
+    grid: 30px;
     grid-template-columns: repeat(2, 1fr);
-    padding: 1rem;
+    padding: 3rem;
+}
+
+.text {
+    margin-left: 1rem;
 }
 
 .portfolio {
     display: grid;
-    grid: 20px;
+    grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
@@ -155,7 +158,7 @@ img {
     box-shadow: var(--shadow);
 }
 
-/* footer */
+/* Footer */
 footer {
     margin-top: 2rem;
     background: var(--dark);
@@ -169,10 +172,32 @@ footer {
     .top-container {
         grid-template-areas: 
             'showcase showcase'
-            'top-box-a top-box-b'
+            'top-box-a top-box-b';
+    }
+    .showcase h1 {
+        font-size:2.5rem;
+    }
+    
+    .main-nav ul {
+        grid-template-columns: 1fr;
+    }
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    .info .btn {
+        display: block;
+        text-align: center;
+        margin: auto;
     }
 }
 
-.showcase h1 {
-    font-size:2.5rem;
+@media(max-width: 500px) {
+    .top-container {
+        grid-template-areas: 
+            'showcase'
+            'top-box-a'
+            'top-box-b'; 
+    }    
 }
+
